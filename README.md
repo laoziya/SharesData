@@ -34,7 +34,8 @@ host=/hs/realtimedata/service/plate.php&page=0
 eg：只请求行业名称、id和所行公司数，`http://quotes.money.163.com/hs/realtimedata/service/plate.php?host=/hs/realtimedata/service/plate.php&page=0&query=TYPE:HANGYE&fields=NAME,PLATE_ID,STOCK_COUNT&sort=PERCENT&order=desc&count=47&type=query&callback=callback_1932607065&req=51420`
 
 ### 2.2. 行业详情页
-家具制造行业详情页：http://quotes.money.163.com/old/#query=hy003008&DataType=HS_RANK&sort=PERCENT&order=desc&count=24&page=0，此页面展示了家具制造行业下的所有公司信息。通过此页面，需要获得每个公司的code和name，api：
+家具制造行业详情页：http://quotes.money.163.com/old/#query=hy003008&DataType=HS_RANK&sort=PERCENT&order=desc&count=24&page=0 
+此页面展示了家具制造行业下的所有公司信息。通过此页面，需要获得每个公司的code和name，api：
 ```
 # http://quotes.money.163.com/hs/service/diyrank.php?
 host=http%3A%2F%2Fquotes.money.163.com%2Fhs%2Fservice%2Fdiyrank.php
