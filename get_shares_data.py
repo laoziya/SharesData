@@ -147,8 +147,6 @@ class GetSharesData():
     # 获取一个公司的所有股票信息
     def sdata_in_onec(self, code, company_name, plate_name):
         cname = re.sub(self.patter, '', company_name)
-        if os.path.exists(f"data/{plate_name}/{cname}.csv"):
-            return None
         print(f'\t{company_name}...')
         t_lst = []
         for year in range(self.from_year, self.to_year+1):
@@ -170,16 +168,18 @@ class GetSharesData():
         for plate_name, company_lst in self.task_plate_dict.items():
             print(f"板块: {plate_name}")
             for company in company_lst:
+                cname = re.sub(self.patter, '', company[1])
+                if os.path.exists(f"data/{plate_name}/{cname}.csv"):
+                    continue
                 t = threading.Thread(target=self.sdata_in_onec, args=(company[0], company[1], plate_name))
                 t_lst.append(t)
                 t.start()
                 t_count+=1
-                time.sleep(1)
                 if t_count >= 10:
                     for t in t_lst:
                         t.join()
                     t_count = 0
-                    time.sleep(0.5)
+                    t_lst=[]
             print(f"{plate_name}完毕...")
         
         

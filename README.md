@@ -9,7 +9,7 @@
 
 ## 1. 使用介绍
 此爬虫程序的目的是从网络获取沪深a股行业板块中所有公司2017-2022年的股票交易数据。考虑到程序是io密集型，运用了多线程技术提高速度。但为了减少对网站服务器造成的影响和减少对本机内存的消耗，在程序中限制了每次只同时爬取10个公司的数据。
-代码文件：pythoncode/get_shares_data.py
+代码文件：get_shares_data.py
 GetShareDate()为用户提供两个方法：
 - getPlate()：返回行业板块中每个行业的名称与其行业内所有公司的name和code；
 - getData(from_year, to_year, plates=None)：获取指定范围内的公司的股票数据，并写入文件中(data/行业名称/公司名.csv)，from_year开始年份，to_year结束年份，plates一个列表，每个元素是行业板块中的行业名称。
